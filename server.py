@@ -10,8 +10,6 @@ from fastapi.responses import Response
 from starlette.routing import request_response
 
 
-
-
 app = FastAPI()
 
 SECRET_KEY = "5e5a93bdfea79fae4edd6468902e5d89756dc25736d1de2b5d9f3b5d24e1d6cf"
@@ -27,7 +25,7 @@ def sign_data(data: str) -> str:
 
 
 def get_usrname_from_signed_string(username_signed: str) -> Optional[str]:
-    
+    """Получаем username из Подписанных Cookies"""
     username_base64, sign = username_signed.split(".")
     username = base64.b64decode(username_base64.encode()).decode()
     valid_sign = sign_data(username)
