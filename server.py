@@ -25,7 +25,7 @@ def sign_data(data: str) -> str:
 
 
 def get_usrname_from_signed_string(username_signed: str) -> Optional[str]:
-    """Получаем username из Подписанных Cookies"""
+    """Возваращает username из Подписанных Cookies"""
     username_base64, sign = username_signed.split(".")
     username = base64.b64decode(username_base64.encode()).decode()
     valid_sign = sign_data(username)
